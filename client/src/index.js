@@ -8,18 +8,20 @@ import { AuthProvider } from './context/auth';
 import "antd/dist/reset.css";
 import { SearchProvider } from './context/search';
 import { BiSearch } from 'react-icons/bi';
+import { CartProvider } from "./context/cart";
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <AuthProvider>
   <SearchProvider>
-       <BrowserRouter>
-          <App />
+    <CartProvider>
+      <BrowserRouter>
+        <App />
       </BrowserRouter>
-      </SearchProvider>
-  </AuthProvider>
-  
+    </CartProvider>
+  </SearchProvider>
+</AuthProvider>
   
 );
 
