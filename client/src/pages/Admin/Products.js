@@ -25,11 +25,11 @@ const Products = () => {
   }, []);
   return (
     <Layout>
-      <div className="row m-3 p-3">
+      <div className="row  p-3" style={{ marginTop: "6rem" }}>
         <div className="col-md-3">
           <AdminMenu />
         </div>
-        <div className="col-md-9 ">
+        <div className="col-md-9" >
           <h1 className="text-center">All Products List</h1>
           <div className="d-flex flex-wrap">
             {products?.map((p) => (
