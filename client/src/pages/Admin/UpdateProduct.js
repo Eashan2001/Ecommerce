@@ -24,7 +24,7 @@ const UpdateProduct = () => {
   const getSingleProduct = async () => {
     try {
       const { data } = await axios.get(
-        `/api/v1/product/get-product/${params.slug}`
+        `${process.env.REACT_APP_API}/api/v1/product/get-product/${params.slug}`
       );
 
       if (data?.success && data.product) {
@@ -52,7 +52,7 @@ const UpdateProduct = () => {
   // Get all categories
   const getAllCategory = async () => {
     try {
-      const { data } = await axios.get("/api/v1/category/get-category");
+      const { data } = await axios.get(`${process.env.REACT_APP_API}/api/v1/category/get-category`);
       if (data?.success) {
         setCategories(data.category);
       } else {
@@ -88,7 +88,7 @@ const UpdateProduct = () => {
       productData.append("category", category);
 
       const { data } = await axios.put(
-        `/api/v1/product/update-product/${id}`,
+        `${process.env.REACT_APP_API}/api/v1/product/update-product/${id}`,
         productData,
         {
           headers: {
@@ -118,7 +118,7 @@ const UpdateProduct = () => {
       if (!confirmDelete) return;
 
       const { data } = await axios.delete(
-        `/api/v1/product/delete-product/${id}`
+        `${process.env.REACT_APP_API}/api/v1/product/delete-product/${id}`
       );
       if (data?.success) {
         toast.success("Product Deleted Successfully");
@@ -186,7 +186,7 @@ const UpdateProduct = () => {
                 ) : (
                   <div className="text-center">
                     <img
-                      src={`/api/v1/product/product-photo/${id}`}
+                      src={`${process.env.REACT_APP_API}/api/v1/product/product-photo/${id}`}
                       alt="product_photo"
                       height={"200px"}
                       className="img img-responsive"
